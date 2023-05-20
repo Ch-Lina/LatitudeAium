@@ -1,0 +1,233 @@
+/*
+-48.876667,-123.393333
+https://coolors.co/131315-ccb582-ae5427-4c5676-1c1d27
+$night: rgba(19, 19, 21, 1);
+$ecru: rgba(204, 181, 130, 1);
+$rust: rgba(174, 84, 39, 1);
+$yinmn-blue: rgba(76, 86, 118, 1);
+$raisin-black: rgba(28, 29, 39, 1);
+*/
+
+:root {
+  --header-image: url('https://latitude-muia.neocities.org/imagenes/WallpaperDiscoElysium.jpg');
+  --body-bg-image: url('https://latitude-muia.neocities.org/imagenes/5021.png');
+  /* colors */
+  --content: #43256E;
+}
+
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #000000;
+  /* you can delete the line below if you'd prefer to not use an image */
+  background-size: 65px;
+  color: rgba(235, 222, 207, 1);
+  background-image: var(--body-bg-image);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* below this line is CSS for the layout */
+
+/* this is a CSS comment to uncomment a line of CSS, remove the * and the / before and after the text */
+
+
+/* the "container" is what wraps your entire website */
+/* if you want something (like the header) to be Wider than the other elements, you will need to move that div outside of the container */
+
+#container {
+  max-width: 900px;
+  /* this is the width of your layout! */
+  /* if you change the above value, scroll to the bottom and change the media query according to the comment! */
+  margin: 0 auto;
+  /* this centers the entire page */
+}
+
+/* the area below is for all links on your page EXCEPT for the navigation */
+#container a {
+  color: rgba(78, 122, 87, 1);
+  font-weight: bold;
+/* if you want to remove the underline you can add a line below here that says: text-decoration:none; */
+}
+
+#header {
+  width: 100%;
+  background-color: rgba(19, 19, 21, 1);
+  /* header color here! */
+  height: 150px;
+  /* this is only for a background image! */
+  /* if you want to put images IN the header, you can add them directly to the <div id="header"></div> element! */
+  background-image: var(--header-image);
+  background-size: 100%;
+}
+
+/* navigation section!! */
+#navbar {
+  height: 40px;
+  background-color: rgba(19, 19, 21, 0.9);
+  /* navbar color */
+  width: 100%;
+  padding-top: 12px;
+}
+
+#flex {
+  display: flex;
+}
+
+/* this colors BOTH sidebars if you want to style them separately, create styles for #leftSidebar and #rightSidebar */
+
+aside {
+  background-image: linear-gradient(rgba(76, 86, 118, 0.6),rgba(174, 84, 39, 0.4));
+  width: 200px;
+  padding: 20px;
+  font-size: smaller;
+  /* this makes the sidebar text slightly smaller */
+}
+
+
+/* this is the color of the content area, between the sidebars! */
+main {
+  background-image: linear-gradient(rgba(28, 29, 39, 0.6), rgba(204, 181, 130, 0.4));
+  flex: 1;
+  padding: 20px;
+  order: 2;
+}
+
+/* what's this "order" stuff about?? allow me to explain! if you're using both sidebars, the "order" value tells the CSS the order in which to display them. left sidebar is 1, content is 2, and right sidebar is 3! */
+
+#leftSidebar {
+  order: 1;
+}
+
+#rightSidebar {
+  order: 3;
+}
+
+footer {
+  background-color: #ffffff;
+  /* background color for footer */
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+  /* this centers the footer text */
+}
+
+h1,
+h2,
+h3 {
+  color: rgba(235, 222, 207, 1);
+  text-shadow: 2px 2px 1px rgba(76, 86, 118, 0.4);
+}
+
+h1 {
+  font-size: 25px;
+}
+
+strong {
+  /* this styles bold text */
+  color:rgba(235, 222, 207, 1);
+  text-shadow: 2px 2px 1px rgba(19, 19, 21, 0.4);
+  text-align:center;
+}
+
+/* this is just a cool box, it's the darker colored one */
+.box {
+  background-color: rgba(28, 29, 39, 1);
+  border: 1px solid rgba(19, 19, 21, 1);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* CSS for extras */
+
+#topBar {
+  width: 100%;
+  height: 30px;
+  padding: 10px;
+  font-size: smaller;
+  background-color: #13092D;
+}
+
+
+/* BELOW THIS POINT IS MEDIA QUERY */
+
+/* so you wanna change the width of your page? by default, the container width is 900px. in order to keep things responsive, take your new height, and then subtrack it by 100. use this new number as the "max-width" value below */
+
+@media only screen and (max-width: 800px) {
+  #flex {
+    flex-wrap: wrap;
+  }
+
+  aside {
+    width: 100%;
+  }
+
+  /* the order of the items is adjusted here for responsiveness! since the sidebars would be too small on a mobile device. feel free to play around with the order! */
+  main {
+    order: 1;
+  }
+
+  #leftSidebar {
+    order: 2;
+  }
+
+  #rightSidebar {
+    order: 3;
+  }
+
+  #navbar ul {
+    flex-wrap: wrap;
+  }
+
+}
+
+#scroll-text {
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  
+  -moz-animation: my-animation 15s linear infinite;
+  -webkit-animation: my-animation 15s linear infinite;
+  animation: my-animation 15s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateX(100%); }
+  to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+#scroll-container {
+  border:hidden;
+  border-radius: 0px;
+  overflow:hidden;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
